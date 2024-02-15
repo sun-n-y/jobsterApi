@@ -28,6 +28,15 @@
 
 ### _notes_
 
--
+- spring cleaning
+  - remove swagger
+  - remove limiter
+    - we will use a more specific limiter for unique routes
+  - remove cors
+    - originally we wanted external apps to access api, we just built a server
+    - for this project we only this frontend to be able to access this server
+    - no need for cors
+  - change engines
+    - to latest stable version, package json
 
 [Back to Top](#custom_anchor_name)
