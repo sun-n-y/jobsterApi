@@ -43,6 +43,7 @@
 - setup up client folder as our static
 - api routes will be used in frontend
 - grab index.html from client and serve it for all the routes, that are not part of the api routes
--
+- register login controller
+  - adjust response object based on frontend
 
 [Back to Top](#custom_anchor_name)

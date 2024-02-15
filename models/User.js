@@ -23,6 +23,18 @@ const UserSchema = new mongoose.Schema({
     required: [true, 'please provide password'],
     minLength: 6,
   },
+  lastName: {
+    type: String,
+    trim: true,
+    maxLength: 20,
+    default: 'lastName',
+  },
+  location: {
+    type: String,
+    trim: true,
+    maxLength: 20,
+    default: 'my city',
+  },
 });
 
 //using function keyword will let us use this keyword, pointing to each document

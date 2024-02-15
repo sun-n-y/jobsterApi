@@ -8,7 +8,15 @@ const register = async (req, res) => {
   const user = await UserModel.create({ ...req.body });
   //create token, using schema instance
   const token = user.createJWT();
-  res.status(StatusCodes.CREATED).json({ user: { name: user.name }, token });
+  res.status(StatusCodes.CREATED).json({
+    user: {
+      name: user.name,
+      email: user.email,
+      lastName: user.lastName,
+      location: user.location,
+      token,
+    },
+  });
 };
 
 const login = async (req, res) => {
@@ -29,7 +37,15 @@ const login = async (req, res) => {
   }
   //create token
   const token = user.createJWT();
-  res.status(StatusCodes.OK).json({ user: { name: user.name }, token });
+  res.status(StatusCodes.OK).json({
+    user: {
+      name: user.name,
+      email: user.email,
+      lastName: user.lastName,
+      location: user.location,
+      token,
+    },
+  });
 };
 
 module.exports = { register, login };
