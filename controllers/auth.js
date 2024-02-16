@@ -48,4 +48,32 @@ const login = async (req, res) => {
   });
 };
 
-module.exports = { register, login };
+const updateUser = async (req, res) => {
+  //check for valid values
+  const { email, name, lastName, location } = req.body;
+  if (!email || !name || !lastName || !location) {
+    throw new BadRequestError('please provide all values');
+  }
+  //get user from db
+  const user = await UserModel.findOne({ _id: req.user.userId });
+  //update db doc with frontend values
+  user.email = email;
+  user.name = name;
+  user.lastName = lastName;
+  user.location = location;
+  await user.save();
+  //create token
+  const token = user.createJWT();
+
+  res.status(StatusCodes.OK).json({
+    user: {
+      name: user.name,
+      email: user.email,
+      lastName: user.lastName,
+      location: user.location,
+      token,
+    },
+  });
+};
+
+module.exports = { register, login, updateUser };

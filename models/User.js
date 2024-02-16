@@ -42,6 +42,10 @@ const UserSchema = new mongoose.Schema({
 //this,.. points to our document to be created,
 //before we save each document to the DB, what do we want to accomplish
 UserSchema.pre('save', async function () {
+  //if we are not modifying the password, return
+  if (!this.isModified('password')) {
+    return;
+  }
   //hash password
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
