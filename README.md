@@ -45,5 +45,13 @@
 - grab index.html from client and serve it for all the routes, that are not part of the api routes
 - register login controller
   - adjust response object based on frontend
+- update user
+  - create a new jwt token
+  - when using save(), it triggers pre save hooks
+    - which will hash the password again when it updates doc on db
+    - as a result our original password will be be different
+    - remove all existing users first
+    - solution, check for the path that is modified
+      - this.modifiedPaths().....this references the model
 
 [Back to Top](#custom_anchor_name)
