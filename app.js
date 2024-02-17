@@ -30,14 +30,14 @@ app.use('/api/v1/jobs', authenticateUser, jobsRouter);
 
 //all get req, will be served the index.html in the client build, making it our home page
 //from there the react application takes over
-app.get('*', (res, req) => {
+app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
 });
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 const start = async () => {
   try {
