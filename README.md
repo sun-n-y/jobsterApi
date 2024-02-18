@@ -46,6 +46,7 @@
 - register login controller
   - adjust response object based on frontend
 - update user
+  - authenticated for security and only user can change their info
   - create a new jwt token
   - when using save(), it triggers pre save hooks
     - which will hash the password again when it updates doc on db
@@ -53,5 +54,11 @@
     - remove all existing users first
     - solution, check for the path that is modified
       - this.modifiedPaths().....this references the model
+- Add job page
+  - tied to user location, by default
+  - add new fields in jobs model
+  - job type
+  - location
+  - test the routes
 
 [Back to Top](#custom_anchor_name)
