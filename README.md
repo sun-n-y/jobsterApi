@@ -60,5 +60,20 @@
   - job type
   - location
   - test the routes
+- mockaroo
+  - can add jobs manually one by one
+  - or use mockaroo to programmatically create jobs for demo user
+  - add it to test user
+  - great resource to create fake data
+  - use the sme exact field names in the models
+  - date time
+    - use two years
+    - format iso 8601 utc
+  - uncheck, include null values
+  - rows to 75
+  - generate
+- add file to database to populate data
+  - make a separate file
+  - stop server, then run specific file
 
 [Back to Top](#custom_anchor_name)
