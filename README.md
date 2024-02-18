@@ -75,5 +75,8 @@
 - add file to database to populate data
   - make a separate file
   - stop server, then run specific file
+- all jobs page search feature
+  - grab req.query
+  - get all the jobs where in the position there is a search values ex. Da
 
 [Back to Top](#custom_anchor_name)

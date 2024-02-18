@@ -3,10 +3,24 @@ const JobModel = require('../models/Job');
 const { BadRequestError, NotFoundError } = require('../errors');
 
 const getAllJobs = async (req, res) => {
-  const jobs = await JobModel.find({ createdBy: req.user.userId }).sort(
-    'createdAt'
-  );
-  res.status(StatusCodes.OK).json({ count: jobs.length, jobs });
+  //get the values from frontend
+  const { status, jobType, search, sort } = req.query;
+
+  const queryObject = {
+    createdBy: req.user.userId,
+  };
+
+  //if any of the below fields exists add to query object
+  if (search) {
+    //can be company
+    queryObject.position = { $regex: search, $options: 'i' };
+  }
+
+  //so we can chain more logic
+  let result = JobModel.find(queryObject);
+
+  const jobs = await result;
+  res.status(StatusCodes.OK).json({ jobs });
 };
 
 const getJob = async (req, res) => {
