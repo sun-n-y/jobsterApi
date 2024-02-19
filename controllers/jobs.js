@@ -24,7 +24,6 @@ const getAllJobs = async (req, res) => {
     queryObject.jobType = jobType;
   }
 
-  console.log(req.query);
   //so we can chain more logic
   let result = JobModel.find(queryObject);
 

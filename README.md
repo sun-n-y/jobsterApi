@@ -79,6 +79,20 @@
   - grab req.query
   - get all the jobs where in the position there is a search values ex. Da
   - status and job type
--
+- pagination
+  - you can setup pagination on frontend but that does not change the amount of data over the wire
+    - so if you have a 1000 users with 1000 jobs each, handling this on the frontend is not the best choices
+    - it can be done, but should it be
+    - request all the jobs and let the frontend handle it
+    - will make frontend slower and it will add up quickly
+  - server is much better equipped to handle that
+  - so instead of sending back all the data of specific user we will limit it
+  - and then is user request page two then they will get it
+  - by using limit and skip to return pages
+  - limit can be added on frontend to allow user to pick or have a default of 10
+  - send total jobs and number of pages, because there is a pagination setup on frontend.
+    - its looking for total jobs and number of pages
+    - countDocument() method
+  - each button click will send a request for specific page
 
 [Back to Top](#custom_anchor_name)
