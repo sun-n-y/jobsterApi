@@ -78,5 +78,7 @@
 - all jobs page search feature
   - grab req.query
   - get all the jobs where in the position there is a search values ex. Da
+  - status and job type
+-
 
 [Back to Top](#custom_anchor_name)
