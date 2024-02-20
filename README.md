@@ -94,5 +94,12 @@
     - its looking for total jobs and number of pages
     - countDocument() method
   - each button click will send a request for specific page
+- restrict certain actions for demo user
+  - demo user cannot perform any crud operations
+  - multiple ways to stop this
+    - we can use email or userId of test user from mongo db
+  - another middleware between auth and controller
+    - import it where ever you want restriction for test user
+  -
 
 [Back to Top](#custom_anchor_name)

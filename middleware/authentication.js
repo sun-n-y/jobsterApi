@@ -14,8 +14,10 @@ const auth = async (req, res, next) => {
   try {
     //verify token, to get payload data like username and id to pass along
     const payload = jwt.verify(token, process.env.JWT_SECRET);
+    //check for demo user, by their id
+    const testUser = payload.userId === '65cecfb127fffc80eba5edb7';
     //attach user to job routes, by adding property to request object
-    req.user = { userId: payload.userId, name: payload.name };
+    req.user = { userId: payload.userId, testUser };
     //pass along to job routes
     next();
   } catch (error) {
