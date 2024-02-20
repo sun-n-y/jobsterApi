@@ -14,7 +14,7 @@ const jobsRouter = require('./routes/jobs');
 const connectDB = require('./db/connect');
 const authenticateUser = require('./middleware/authentication');
 
-// security/other packages
+//api limiter requirement
 app.set('trust proxy', 1);
 
 //middlewares

@@ -100,6 +100,15 @@
     - we can use email or userId of test user from mongo db
   - another middleware between auth and controller
     - import it where ever you want restriction for test user
-  -
+- api limiter
+  - limit the amount of time the user can login or register
+  - avoid someone who might try to spam application
+  - instead of adding it entire app, it wil only be two request
+  - grab the package express rate limit
+    - set up rate limiter function
+    - pass in object with desired values
+  - inject it before register and login routes only
+  - app.set('trust proxy',1)
+    - add before all middleware, since we're pushing to render
 
 [Back to Top](#custom_anchor_name)
