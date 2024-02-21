@@ -110,5 +110,26 @@
   - inject it before register and login routes only
   - app.set('trust proxy',1)
     - add before all middleware, since we're pushing to render
+- stats page
+  - mongodb aggregation
+  - idea is, we want to group our data based on something
+    - status, interview, jobs declined
+  - also we want to send out how many applications filled out in last 6 months
+  - aggregation pipeline consists of one or more stages that processes documents(jobs or user)
+    - each stage performs and operation on input documents
+      - filter, group, or calculate values
+    - the documents that are output from a stage are passed to the next stage
+    - can return results for groups of docs, like total, average, maximum, and minimum values
+  - let stats
+    - JobModel.aggregate
+  - stage 1
+    - match based on userID
+  - stage 2
+    - group, ids by status
+  - refactor result based on what front end is expecting
+    - reduce method
+  - setup default stats incase user has no jobs
+    - unless theres check on frontend, but should be checks on both sides
+  - install and import moment & mongoose library in jobs controller
 
 [Back to Top](#custom_anchor_name)
