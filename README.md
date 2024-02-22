@@ -130,6 +130,13 @@
     - reduce method
   - setup default stats incase user has no jobs
     - unless theres check on frontend, but should be checks on both sides
+  - monthly applications chart
+    - re charts library
+    - front end will just data in format that makes most sense
+    - grouped based on two properties
+      - year and month
+    - sort them, last six months only
+    - refactor according to frontend
   - install and import moment & mongoose library in jobs controller
 
 [Back to Top](#custom_anchor_name)

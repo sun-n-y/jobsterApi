@@ -144,9 +144,36 @@ const showStats = async (req, res) => {
     declined: stats.declined || 0,
   };
 
-  res
-    .status(StatusCodes.OK)
-    .json({ defaultStats: defaultStats, monthlyApplications: [] });
+  let monthlyApplications = await JobModel.aggregate([
+    //string userId converted to mongoose object
+    { $match: { createdBy: new mongoose.Types.ObjectId(req.user.userId) } },
+    //group all my ids based on year and month
+    {
+      $group: {
+        _id: { year: { $year: '$createdAt' }, month: { $month: '$createdAt' } },
+        count: { $sum: 1 },
+      },
+    },
+    { $sort: { '_id.year': -1, '_id.month': -1 } },
+    { $limit: 6 },
+  ]);
+
+  monthlyApplications = monthlyApplications.map((item) => {
+    const {
+      _id: { year, month },
+      count,
+    } = item;
+    const date = moment()
+      .month(month - 1)
+      .year(year)
+      .format('MMM Y');
+    return { date, count };
+  });
+
+  res.status(StatusCodes.OK).json({
+    defaultStats: defaultStats,
+    monthlyApplications,
+  });
 };
 
 module.exports = {
