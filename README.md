@@ -138,5 +138,10 @@
     - sort them, last six months only
     - refactor according to frontend
   - install and import moment & mongoose library in jobs controller
+  - deploy on render
+    - fix build folder
+    - in this project we also have the frontend react project
+    - so we have it setup as one repo, sever and frontend
+    - remove /build from git ignore so the frontend is not missing when deployed
 
 [Back to Top](#custom_anchor_name)
