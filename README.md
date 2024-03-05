@@ -1,5 +1,6 @@
 <a name="custom_anchor_name"></a>
 
+# _Hosted on Render using free tier, app will take 50 seconds or more to spin up once link is clicked.._
 # jobster API :briefcase:
 
 ## Concepts applied but not limited too
