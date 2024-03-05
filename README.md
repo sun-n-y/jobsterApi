@@ -12,9 +12,8 @@
 - ### nosql
 - ### mongoose
 - ### schema & model
-- ### heroku hosting
 - ### jwt auth
-- ### render
+- ### render hosting
 
 ---
 
